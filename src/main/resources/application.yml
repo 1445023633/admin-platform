@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
   
 spring:
   datasource:
@@ -13,4 +13,8 @@ spring:
       max-idle: 10
       min-idle: 5
       initial-size: 5
-  
+
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp

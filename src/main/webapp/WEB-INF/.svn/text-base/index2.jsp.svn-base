@@ -1,0 +1,36 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="org.wtes.utils.WebUtil"%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+ 
+    
+    <title>My JSP 'index.jsp' starting page</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+  </head>
+  <style type="text/css">
+  .opacity{
+	height:80px;width:80px;background:none;border:1px solid black;background:red;
+   }
+   .opacity p{margin-top:40px;height:40px;line-height:40px;text-align:center;background:#FFF;}
+  	
+  </style>
+  <body>
+ 	
+ 	
+	
+	
+	<div class="pointName"><p >xxxxxx</p></div>
+	
+	
+ 	
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="org.wtes.clgs.bean.TBL_POINTS"%>
+<%@page import="org.springframework.jdae.Service"%>
+<%@page import="org.wtes.clgs.bean.service.impl.TBL_POINTSServiceBean"%>
+<%@page import="org.wtes.clgs.bean.view.VIEW_POINTS_LINK"%>
+<%@ include file="/wtes/jsp/share/taglib.jsp" %>
+
+<%
+//000000000000001   000000000000024
+
+
+
+
+
+
+%>
+<html>
+	<head>
+		<link type='text/css' href='${ctx}/wtes/modal/css/basic.css' rel='stylesheet' media='screen' />
+		<script type="text/javascript" src="${ctx}/wtes/js/xgqtools.js"></script>
+		<script type="text/javascript" src="${ctx}/wtes/js/jquery.js"></script>
+		<script type="text/javascript" src="${ctx}/wtes/modal/jquery.simplemodal.js"></script>
+		<style>
+
+
+</style>
+
+<script type="text/javascript">
+
+
+    function openModalDialog(){
+		//var obj =$('#basic-modal-content').modal();
+		
+		//http://www.ericmmartin.com/projects/simplemodal/#options
+		$("#basic-modal").modal({
+		  
+		   onOpen: function (dialog) {
+				dialog.overlay.fadeIn('slow', function () {
+					dialog.container.slideDown('slow', function () {
+						dialog.data.fadeIn('slow');
+					});
+				});
+		  },
+		  onShow: function (dialog) {
+			// Access elements inside the dialog
+			// Useful for binding events, initializing other plugins, etc.
+			
+			// For example:
+			$("a", dialog.data).click(function () {
+				// do something
+				
+				return false;
+			});
+		  },
+		 onClose: function (dialog) {
+			dialog.data.fadeOut('slow', function () {
+				dialog.container.slideUp('slow', function () {
+					dialog.overlay.fadeOut('slow', function () {
+						
+						$.modal.close(); // must call this!
+					});
+				});
+			});
+		  }
+		 
+		 });
+		
+	}
+    
+
+     //用javascript进行声音播放控制
+       function ManageSoundControl(action)
+       {
+            var soundControl = document.getElementById("soundControl");
+            if(action == "play")
+          {
+                soundControl.play();
+            }
+            if(action == "stop")
+            {
+                soundControl.stop();
+            }
+        }
+
+      
+</script>
+</head>
+
+	<body>
+	   <input type="button" value="打开" onclick="openModalDialog()">
+		<div id="basic-modal" style="display:none">
+		
+		asdasdasdasdasd
+	
+		</div>
+		
+		   <embed id="soundControl" src="${ctx}/wtes/js/sound/msg1.mp3"  hidden="true" loop="false" autostart="false"></embed>
+                     <input id="btPlay" type="button" value="播放" onclick="ManageSoundControl('play')" />
+                     <input id="btStop" type="button" value="关闭" onclick="ManageSoundControl('stop')" />
+	</body>
+</html>
