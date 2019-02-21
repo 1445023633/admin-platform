@@ -1,0 +1,13 @@
+package org.wtes.clgs.bean.service;
+
+import org.springframework.jdae.access.pool.JdbcDAO;
+import org.wtes.clgs.bean.TBL_GUIDEDATA_AVG;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Oct 2, 2012 2:07:00 PM 
+ * 类说明: 
+ */
+public interface TBL_GUIDEDATA_AVGService extends JdbcDAO<TBL_GUIDEDATA_AVG> {
+
+}

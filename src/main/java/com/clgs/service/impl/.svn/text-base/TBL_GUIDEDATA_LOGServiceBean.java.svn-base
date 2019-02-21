@@ -1,0 +1,15 @@
+package org.wtes.clgs.bean.service.impl;
+
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_GUIDEDATA_LOG;
+import org.wtes.clgs.bean.service.TBL_GUIDEDATA_LOGService;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Oct 2, 2012 2:08:11 PM 
+ * 类说明: 
+ */
+public class TBL_GUIDEDATA_LOGServiceBean extends JdbcDAOSupport<CORE, TBL_GUIDEDATA_LOG> implements TBL_GUIDEDATA_LOGService {
+
+}

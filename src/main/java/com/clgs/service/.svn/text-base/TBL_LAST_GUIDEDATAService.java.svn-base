@@ -1,0 +1,14 @@
+package org.wtes.clgs.bean.service;
+
+import org.springframework.jdae.access.pool.JdbcDAO;
+import org.wtes.clgs.bean.TBL_LAST_GUIDEDATA;
+import org.wtes.clgs.bean.TBL_POINT_ALARM;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Nov 13, 2012 5:16:58 PM 
+ * 类说明: 
+ */
+public interface TBL_LAST_GUIDEDATAService extends JdbcDAO<TBL_LAST_GUIDEDATA> {
+
+}

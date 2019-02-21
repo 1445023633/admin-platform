@@ -1,0 +1,26 @@
+package org.wtes.clgs.bean.service.impl;
+
+import org.springframework.jdae.Service;
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_GUIDE;
+import org.wtes.clgs.bean.service.TBL_GUIDEService;
+import org.wtes.utils.KongUtil;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Aug 27, 2012 11:03:33 PM 
+ * 类说明: 
+ */
+public class TBL_GUIDEServiceBean extends JdbcDAOSupport<CORE, TBL_GUIDE> implements TBL_GUIDEService {
+
+	
+	//是否存在模块
+	public boolean exist(String sqlWhere){
+		try{
+		String strSql="  1=1";
+		if(KongUtil.isNotNull(sqlWhere)){strSql+=" and "+sqlWhere;}
+		return Service.get(TBL_GUIDEServiceBean.class).getCountByCondition(new StringBuffer(strSql), null,true)>0;
+		}catch(Exception dd){return true;}
+	}
+}

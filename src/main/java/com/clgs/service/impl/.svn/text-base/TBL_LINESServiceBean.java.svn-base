@@ -1,0 +1,151 @@
+package org.wtes.clgs.bean.service.impl;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Random;
+
+import org.springframework.jdae.Service;
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.springframework.jdae.ds.JdaePersistence;
+import org.springframework.jdae.init.Jdae;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_CATALOG;
+import org.wtes.clgs.bean.TBL_LINES;
+import org.wtes.clgs.bean.TBL_POINTS;
+import org.wtes.clgs.bean.service.TBL_LINESService;
+import org.wtes.utils.KongUtil;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Aug 19, 2012 4:35:32 PM 
+ * 类说明: 
+ */
+public class TBL_LINESServiceBean extends JdbcDAOSupport<CORE, TBL_LINES> implements TBL_LINESService {
+
+	public static void main(String[] args) {
+		/*Jdae.getInstance().init(JdbcDAOSupport.class, "jdae.properties");
+		StringBuffer generatedText = new StringBuffer();
+
+		Service.get(TBL_LINESServiceBean.class).showLine(generatedText, null);
+		JdaePersistence.closeThreadLocalConnection("clgs");
+		System.out.println(generatedText);*/
+		
+		System.out.println(new Random().nextInt(6));
+
+	}
+
+	/**
+	 * 显示线路
+	 * @param generatedText
+	 * @param parentId
+	 */
+	
+	
+	public void showLineForCheckbox(StringBuffer generatedText, String parentId) {
+
+		StringBuffer whereql = new StringBuffer();
+		List<Object> queryParams = new ArrayList<Object>();
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		orderby.put("LINE_ID", "ASC");
+		List<TBL_LINES> tbl_lineses = null;
+		if (parentId == null) {
+
+			whereql.append(" o.PARENT_LINE is null");
+			tbl_lineses = Service.get(TBL_LINESServiceBean.class).getListByCondition(-1, -1, whereql, null, orderby);
+
+		} else {
+			whereql.append(" o.PARENT_LINE =?");
+			queryParams.add(parentId);
+			tbl_lineses = Service.get(TBL_LINESServiceBean.class).getListByCondition(-1, -1, whereql, queryParams, orderby);
+
+		}
+		
+		if (KongUtil.isNotNull(tbl_lineses)) {
+			if (parentId != null)
+				generatedText.append("<ul>");
+			for (TBL_LINES tbl_line : tbl_lineses) {
+
+				generatedText.append("<li ><input type='checkbox' name='parent_line' checked='checked'  value='" + tbl_line.getLINE_ID() + "' value2='" + tbl_line.getLINE_NAME() + "' >" + tbl_line.getLINE_NAME());
+				
+				generatedText.append("</li>");
+
+			}
+			if (parentId != null)
+				generatedText.append("</ul>");
+		}
+
+	}
+	
+	
+	
+	public void showPointsByLine(StringBuffer generatedText, String parentId) {
+
+		StringBuffer whereql = new StringBuffer();
+		List<Object> queryParams = new ArrayList<Object>();
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		orderby.put("LINE_ID", "ASC");
+		List<TBL_POINTS> tbl_points = null;
+		
+		whereql.append(" o.PARENT_LINE =?");
+		queryParams.add(parentId);
+		tbl_points = Service.get(TBL_POINTSServiceBean.class).getListByCondition(-1, -1, whereql, queryParams, orderby);
+
+		
+		if (KongUtil.isNotNull(tbl_points)) {
+			if (parentId != null)
+				generatedText.append("<ul>");
+			for (TBL_POINTS tbl_point : tbl_points) {
+
+				generatedText.append("<li ><input type='checkbox' name='point_id' checked='checked'  value='" + tbl_point.getPOINT_ID()+ "' >" + tbl_point.getPOINT_NAME());
+
+				generatedText.append("</li>");
+
+			}
+			if (parentId != null)
+				generatedText.append("</ul>");
+		}
+
+	}
+	
+	
+	
+	
+	public void showLine(StringBuffer generatedText, String parentId) {
+
+		StringBuffer whereql = new StringBuffer();
+		List<Object> queryParams = new ArrayList<Object>();
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		orderby.put("LINE_ID", "ASC");
+		List<TBL_LINES> tbl_lineses = null;
+		if (parentId == null) {
+
+			whereql.append(" o.PARENT_LINE is null");
+			tbl_lineses = Service.get(TBL_LINESServiceBean.class).getListByCondition(-1, -1, whereql, null, orderby);
+
+		} else {
+			whereql.append(" o.PARENT_LINE =?");
+			queryParams.add(parentId);
+			tbl_lineses = Service.get(TBL_LINESServiceBean.class).getListByCondition(-1, -1, whereql, queryParams, orderby);
+
+		}
+
+		if (KongUtil.isNotNull(tbl_lineses)) {
+			if (parentId != null)
+				generatedText.append("<ul>");
+			for (TBL_LINES tbl_line : tbl_lineses) {
+
+				generatedText.append("<li ><input type='radio' name='parent_line' value='" + tbl_line.getLINE_ID() + "' value2='" + tbl_line.getLINE_NAME() + "' >" + tbl_line.getLINE_NAME());
+
+				showLine(generatedText, tbl_line.getLINE_ID());
+
+				generatedText.append("</li>");
+
+			}
+			if (parentId != null)
+				generatedText.append("</ul>");
+		}
+
+	}
+}

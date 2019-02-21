@@ -10,17 +10,21 @@ import java.util.Date;
  * class description: 
  */
 public class DateUtil {
-	SimpleDateFormat ymdhms = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-dd");
+	
+	public static SimpleDateFormat DEFAULT_TIMESSTAMP_COMPLETE_SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+	public static SimpleDateFormat DEFAULT_TIMESSTAMP_SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	public static SimpleDateFormat DEFAULT_DATE_SDF = new SimpleDateFormat("yyyy-MM-dd");
+	public static SimpleDateFormat DEFAULT_FILE_SDF = new SimpleDateFormat("/yyyy/MM/dd/");
+	
 	/**
 	 * ��ȡĳ�����������
 	 * @param inputDate����������
 	 * @param dayNumber��������� 
 	 * @return ������������
 	 */
-	public static Date getSpaceDateAfter(Date inputDate,int dayNumber){
+	public static Date getSpaceDateAfter(Date inputDate,long dayNumber){
 		
-		long day=inputDate.getTime()+(1000*60*60*24*dayNumber);
+		long day=inputDate.getTime()+(((long)1000)*60*60*24*dayNumber);
 		
 		return new Date(day);
 	}
@@ -31,12 +35,27 @@ public class DateUtil {
 	 * @param dayNumber���������
 	 * @return ������������
 	 */
-	public static Date getSpaceDateBefore(Date inputDate,int dayNumber){
+	public static Date getSpaceDateBefore(Date inputDate,long dayNumber){
 		
-		long day=inputDate.getTime()-(1000*60*60*24*dayNumber);
+		long day=inputDate.getTime()-(((long)1000)*60*60*24*dayNumber);
 		
 		return new Date(day);
 	}
+	
+	
+	/**
+	 * ��ȡ��������
+	 * @param endDate
+	 * @param startDate
+	 * @return
+	 */
+	public static  long getSpaceNumber( Date endDate,Date startDate){
+		
+	
+		return (endDate.getTime()-startDate.getTime())/(1000*60*60*24);
+		
+	}
+	
 	
 	
 	/**

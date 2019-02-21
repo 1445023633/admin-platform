@@ -1,0 +1,15 @@
+package org.wtes.clgs.bean.service.impl;
+
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_SMS_SEND;
+import org.wtes.clgs.bean.service.TBL_SMS_SENDService;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Oct 6, 2012 3:27:57 PM 
+ * 类说明: 
+ */
+public class TBL_SMS_SENDServiceBean extends JdbcDAOSupport<CORE, TBL_SMS_SEND> implements TBL_SMS_SENDService {
+
+}

@@ -1,0 +1,18 @@
+package org.wtes.clgs.bean.service;
+
+import org.springframework.jdae.access.pool.JdbcDAO;
+import org.wtes.clgs.bean.TBL_USER;
+import org.wtes.clgs.bean.TBL_USER_FEATURE;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Aug 18, 2012 4:23:42 PM 
+ * 类说明: 
+ */
+public interface TBL_USER_FEATUREService extends JdbcDAO<TBL_USER_FEATURE> {
+
+	//判断用户的特征值是否存在
+	public boolean exists(String user_id, String feature_id);
+	//获得用户特征
+	public TBL_USER_FEATURE GetUserFeature(String user_id, String feature_id);
+}

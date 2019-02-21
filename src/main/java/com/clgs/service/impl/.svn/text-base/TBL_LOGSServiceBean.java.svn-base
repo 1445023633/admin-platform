@@ -1,0 +1,36 @@
+package org.wtes.clgs.bean.service.impl;
+
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import org.springframework.jdae.Service;
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.springframework.jdae.ds.JdaePersistence;
+import org.springframework.jdae.init.Jdae;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_GUIDE;
+import org.wtes.clgs.bean.TBL_LOGS;
+import org.wtes.clgs.bean.TBL_POINTS;
+import org.wtes.clgs.bean.service.TBL_LOGSService;
+import org.wtes.utils.Constant;
+import org.wtes.utils.DateUtil;
+import org.wtes.utils.KongUtil;
+import org.wtes.utils.PropUtil;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Aug 22, 2012 12:14:20 AM 
+ * 类说明: 
+ */
+public class TBL_LOGSServiceBean extends JdbcDAOSupport<CORE, TBL_LOGS> implements TBL_LOGSService {
+	
+	
+	
+
+	
+}

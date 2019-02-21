@@ -1,0 +1,15 @@
+package org.wtes.clgs.bean.service.impl;
+
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_PROTOCOL;
+import org.wtes.clgs.bean.service.TBL_PROTOCOLService;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Oct 6, 2012 2:01:38 PM 
+ * 类说明: 
+ */
+public class TBL_PROTOCOLServiceBean extends JdbcDAOSupport<CORE, TBL_PROTOCOL> implements TBL_PROTOCOLService {
+
+}

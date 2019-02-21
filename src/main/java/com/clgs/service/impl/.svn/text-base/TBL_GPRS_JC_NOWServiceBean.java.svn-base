@@ -1,0 +1,15 @@
+package org.wtes.clgs.bean.service.impl;
+
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_GPRS_JC_NOW;
+import org.wtes.clgs.bean.service.TBL_GPRS_JC_NOWService;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Oct 6, 2012 3:26:37 PM 
+ * 类说明: 
+ */
+public class TBL_GPRS_JC_NOWServiceBean extends JdbcDAOSupport<CORE, TBL_GPRS_JC_NOW> implements TBL_GPRS_JC_NOWService {
+
+}

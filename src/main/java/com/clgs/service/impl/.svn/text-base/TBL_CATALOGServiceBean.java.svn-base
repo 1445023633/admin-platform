@@ -1,0 +1,90 @@
+package org.wtes.clgs.bean.service.impl;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import org.springframework.jdae.Service;
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.springframework.jdae.ds.JdaePersistence;
+import org.springframework.jdae.init.Jdae;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_CATALOG;
+import org.wtes.clgs.bean.TBL_GROUP;
+import org.wtes.clgs.bean.service.TBL_CATALOGService;
+import org.wtes.utils.KongUtil;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Aug 27, 2012 10:00:18 PM 
+ * 类说明: 
+ */
+public class TBL_CATALOGServiceBean extends JdbcDAOSupport<CORE, TBL_CATALOG> implements TBL_CATALOGService {
+	
+	
+	public static void main(String[] args) {
+		Jdae.getInstance().init(JdbcDAOSupport.class, "jdae.properties");
+		StringBuffer generatedText = new StringBuffer();
+
+		Service.get(TBL_CATALOGServiceBean.class).showCatalog(generatedText, null);
+		JdaePersistence.closeThreadLocalConnection("clgs");
+		System.out.println(generatedText);
+
+	}
+
+	/**
+	 * 显示线路
+	 * @param generatedText
+	 * @param parentId
+	 */
+
+	public void showCatalog(StringBuffer generatedText, String parentId) {
+
+		StringBuffer whereql = new StringBuffer();
+		List<Object> queryParams = new ArrayList<Object>();
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		orderby.put("CATALOG_ID", "ASC");
+		List<TBL_CATALOG> tbl_catalogs = null;
+		if (parentId == null) {
+
+			whereql.append(" o.PARENT_CATALOG is null");
+			tbl_catalogs = Service.get(TBL_CATALOGServiceBean.class).getListByCondition(-1, -1, whereql, null, orderby);
+
+		} else {
+			whereql.append(" o.PARENT_CATALOG =?");
+			queryParams.add(parentId);
+			tbl_catalogs = Service.get(TBL_CATALOGServiceBean.class).getListByCondition(-1, -1, whereql, queryParams, orderby);
+
+		}
+
+		if (KongUtil.isNotNull(tbl_catalogs)) {
+			if (parentId != null)
+				generatedText.append("<ul>");
+			for (TBL_CATALOG tbl_catalog : tbl_catalogs) {
+
+				generatedText.append("<li ><input type='radio' name='parent_catalog' value='" + tbl_catalog.getCATALOG_ID() + "' value2='" + tbl_catalog.getCATALOG_NAME() + "' >" + tbl_catalog.getCATALOG_NAME());
+
+				showCatalog(generatedText, tbl_catalog.getCATALOG_ID());
+
+				generatedText.append("</li>");
+
+			}
+			if (parentId != null)
+				generatedText.append("</ul>");
+		}
+
+	}
+	
+
+	//根据指标类别名称
+	public String GetCatologName(String group_id){
+		try{
+			System.out.println("group_ID");
+		    TBL_CATALOG _model=Service.get(TBL_CATALOGServiceBean.class).get("CATALOG_ID", group_id);
+			if(_model==null)return "";
+			return _model.getCATALOG_NAME();
+		}catch(Exception dd){return "";}
+	}
+	
+	
+}

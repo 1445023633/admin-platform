@@ -1,0 +1,16 @@
+package org.wtes.clgs.bean.service.impl;
+
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_COM_JC_MX;
+import org.wtes.clgs.bean.service.TBL_COM_JC_MXService;
+
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Sep 28, 2012 9:34:26 PM 
+ * 类说明: 
+ */
+public class TBL_COM_JC_MXServiceBean extends JdbcDAOSupport<CORE, TBL_COM_JC_MX> implements TBL_COM_JC_MXService {
+
+}

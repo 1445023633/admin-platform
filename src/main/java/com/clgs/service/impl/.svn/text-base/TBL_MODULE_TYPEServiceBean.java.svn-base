@@ -1,0 +1,15 @@
+package org.wtes.clgs.bean.service.impl;
+
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_MODULE_TYPE;
+import org.wtes.clgs.bean.service.TBL_MODULE_TYPEService;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Nov 5, 2012 11:29:56 AM 
+ * 类说明: 
+ */
+public class TBL_MODULE_TYPEServiceBean extends JdbcDAOSupport<CORE, TBL_MODULE_TYPE> implements TBL_MODULE_TYPEService {
+	
+}

@@ -1,0 +1,18 @@
+package org.wtes.clgs.bean.service;
+
+import org.springframework.jdae.access.pool.JdbcDAO;
+import org.wtes.clgs.bean.TBL_GROUP;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Aug 18, 2012 9:27:57 PM 
+ * 类说明: 
+ */
+public interface TBL_GROUPService extends JdbcDAO<TBL_GROUP> {
+
+	//绑定群组树结构
+	public String BindGroupTree();
+	//根据群组ID获得群组名称
+	public String GetGroupName(String group_id);
+	
+}

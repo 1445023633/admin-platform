@@ -1,0 +1,21 @@
+package org.wtes.clgs.bean.service.impl;
+
+import org.springframework.jdae.Service;
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.springframework.jdae.ds.JdaePersistence;
+import org.springframework.jdae.init.Jdae;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_DATAPOWER;
+import org.wtes.clgs.bean.service.TBL_DATAPOWERService;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Sep 16, 2012 9:06:08 PM 
+ * 类说明: 
+ */
+public class TBL_DATAPOWERServiceBean extends JdbcDAOSupport<CORE, TBL_DATAPOWER> implements TBL_DATAPOWERService {
+	
+	
+	
+	
+}

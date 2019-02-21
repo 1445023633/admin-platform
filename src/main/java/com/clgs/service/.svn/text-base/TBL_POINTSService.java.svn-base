@@ -1,0 +1,13 @@
+package org.wtes.clgs.bean.service;
+
+import org.springframework.jdae.access.pool.JdbcDAO;
+import org.wtes.clgs.bean.TBL_POINTS;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Aug 19, 2012 11:10:54 PM 
+ * 类说明: 
+ */
+public interface TBL_POINTSService extends JdbcDAO<TBL_POINTS> {
+
+}

@@ -1,0 +1,91 @@
+package org.wtes.clgs.bean.service.impl;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import org.springframework.jdae.Service;
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_GUIDEDATA_AVG;
+import org.wtes.clgs.bean.service.TBL_GUIDEDATA_AVGService;
+import org.wtes.utils.Constant;
+import org.wtes.utils.DateUtil;
+import org.wtes.utils.KongUtil;
+import org.wtes.utils.PropUtil;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Oct 2, 2012 2:07:23 PM 
+ * 类说明: 
+ */
+public class TBL_GUIDEDATA_AVGServiceBean extends JdbcDAOSupport<CORE, TBL_GUIDEDATA_AVG> implements TBL_GUIDEDATA_AVGService {
+	
+	
+	/**
+	 * 获取需要更新的日期
+	 * @return
+	 */
+	public List<java.sql.Date> getNeedStasticDays(){
+		
+		StringBuffer whereql = new StringBuffer();
+		List<Object> queryParams = new ArrayList<Object>();
+		LinkedHashMap<String,String> orderby = new LinkedHashMap<String,String>();
+	
+		
+	
+		
+	
+		Calendar calendar=Calendar.getInstance();
+		//获得所有指标
+		calendar.setTime(new Date());
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		calendar.set(Calendar.MILLISECOND, 0);
+		
+		//今天上传昨天的
+		Date currentDate = calendar.getTime(); //
+		
+		//获得没有计算的启示时间
+		whereql.delete(0,whereql.length());
+		queryParams.clear();
+		Date configStartDate = null ;
+		
+		try {
+			configStartDate = Constant.DEFAULT_DATE_SDF.parse(PropUtil.getString("START_DATE"));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	    long spaceDay = 	DateUtil.getSpaceNumber(currentDate,configStartDate);
+	    
+	    List<java.sql.Date> needStasticsDays = null ;
+	    if(spaceDay>0){
+	    	needStasticsDays = new ArrayList<java.sql.Date>();
+	    	for(int i = 0;i<spaceDay;i++){
+	    		
+	    		needStasticsDays.add(new java.sql.Date(DateUtil.getSpaceDateAfter(configStartDate, i).getTime()));
+	    	}
+	    	
+	    	
+	    }
+		if(KongUtil.isNotNull(needStasticsDays)){
+			whereql.delete(0,whereql.length());
+			queryParams.clear();
+			orderby.clear();
+			orderby.put("DATE_ID", "ASC");
+			List<java.sql.Date> logDates =  Service.get(TBL_GUIDEDATA_LOGServiceBean.class).getSelectedListByCondition(java.sql.Date.class, "DATE_ID", -1, -1, null, null, orderby);
+			if(KongUtil.isNotNull(logDates)){
+				needStasticsDays.removeAll(logDates); //清除已经上传的;
+			
+			}
+		}
+		
+		return needStasticsDays;
+	}
+}

@@ -1,0 +1,15 @@
+package org.wtes.clgs.bean.service;
+
+import org.springframework.jdae.access.pool.JdbcDAO;
+import org.wtes.clgs.bean.TBL_USER;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Aug 18, 2012 4:23:42 PM 
+ * 类说明: 
+ */
+public interface TBL_USERService extends JdbcDAO<TBL_USER> {
+
+	
+	public boolean validate(String manager_id, String password);
+}

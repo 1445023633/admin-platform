@@ -1,0 +1,15 @@
+package org.wtes.clgs.bean.service.impl;
+
+import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.wtes.access.db.CORE;
+import org.wtes.clgs.bean.TBL_PLAN;
+import org.wtes.clgs.bean.service.TBL_PLANService;
+
+/** 
+ * @author 作者 E-mail: xgqman@126.com
+ * @version 创建时间：Aug 28, 2012 12:57:26 AM 
+ * 类说明: 
+ */
+public class TBL_PLANServiceBean extends JdbcDAOSupport<CORE, TBL_PLAN> implements TBL_PLANService {
+
+}

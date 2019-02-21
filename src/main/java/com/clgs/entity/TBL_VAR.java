@@ -24,11 +24,6 @@ public class TBL_VAR  implements Serializable{
 	
 	private String REMARKS ; //��ע
 	
-	
-	
-	
-	
-
 	public String getVAR_ID() {
 		return VAR_ID;
 	}
