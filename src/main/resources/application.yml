@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://192.168.10.252:3306/clgs?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/clgs?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 
+    tomcat:
+      max-active: 500
+      max-idle: 10
+      min-idle: 5
+      initial-size: 5
+  
