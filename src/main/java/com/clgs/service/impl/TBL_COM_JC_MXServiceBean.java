@@ -1,16 +1,14 @@
 package com.clgs.service.impl;
 
 import org.springframework.jdae.access.pool.JdbcDAOSupport;
+import org.springframework.stereotype.Service;
+
 import com.clgs.service.CORE;
+import com.clgs.service.TBL_COM_JC_MXService;
 import com.clgs.entity.TBL_COM_JC_MX;
-import com.clgs.entity.TBL_COM_JC_MXService;
 
 
-/** 
- * @author ���� E-mail: xgqman@126.com
- * @version ����ʱ�䣺Sep 28, 2012 9:34:26 PM 
- * ��˵��: 
- */
+@Service
 public class TBL_COM_JC_MXServiceBean extends JdbcDAOSupport<CORE, TBL_COM_JC_MX> implements TBL_COM_JC_MXService {
 
 }

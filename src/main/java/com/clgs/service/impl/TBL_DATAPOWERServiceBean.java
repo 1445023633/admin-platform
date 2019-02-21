@@ -5,8 +5,8 @@ import org.springframework.jdae.access.pool.JdbcDAOSupport;
 import org.springframework.jdae.ds.JdaePersistence;
 import org.springframework.jdae.init.Jdae;
 import com.clgs.service.CORE;
+import com.clgs.service.TBL_DATAPOWERService;
 import com.clgs.entity.TBL_DATAPOWER;
-import com.clgs.entity.TBL_DATAPOWERService;
 
 /** 
  * @author ���� E-mail: xgqman@126.com

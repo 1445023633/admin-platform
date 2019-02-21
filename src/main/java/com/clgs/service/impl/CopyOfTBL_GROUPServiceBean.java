@@ -13,10 +13,10 @@ import org.springframework.jdae.access.pool.JdbcDAOSupport;
 import org.springframework.jdae.ds.JdaePersistence;
 import org.springframework.jdae.init.Jdae;
 import com.clgs.service.CORE;
+import com.clgs.service.TBL_GROUPService;
 import com.clgs.entity.TBL_GROUP;
-import com.clgs.entity.TBL_GROUPService;
-import com.clgs.entity.view.VIEW_DATAPOWER;
-import com.clgs.util.CommUtil;
+import com.clgs.pojo.VIEW_DATAPOWER;
+import com.clgs.utils.CommUtil;
 import com.clgs.utils.KongUtil;
 
 public class CopyOfTBL_GROUPServiceBean extends JdbcDAOSupport<CORE, TBL_GROUP> implements TBL_GROUPService {

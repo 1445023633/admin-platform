@@ -2,8 +2,8 @@ package com.clgs.service.impl;
 
 import org.springframework.jdae.access.pool.JdbcDAOSupport;
 import com.clgs.service.CORE;
+import com.clgs.service.TBL_GPRS_CMD_MXService;
 import com.clgs.entity.TBL_GPRS_CMD_MX;
-import com.clgs.entity.TBL_GPRS_CMD_MXService;
 
 /** 
  * @author ���� E-mail: xgqman@126.com

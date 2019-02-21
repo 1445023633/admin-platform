@@ -9,16 +9,12 @@ import org.springframework.jdae.access.pool.JdbcDAOSupport;
 import org.springframework.jdae.ds.JdaePersistence;
 import org.springframework.jdae.init.Jdae;
 import com.clgs.service.CORE;
+import com.clgs.service.TBL_CATALOGService;
 import com.clgs.entity.TBL_CATALOG;
 import com.clgs.entity.TBL_GROUP;
-import com.clgs.entity.TBL_CATALOGService;
 import com.clgs.utils.KongUtil;
 
-/** 
- * @author ���� E-mail: xgqman@126.com
- * @version ����ʱ�䣺Aug 27, 2012 10:00:18 PM 
- * ��˵��: 
- */
+@org.springframework.stereotype.Service
 public class TBL_CATALOGServiceBean extends JdbcDAOSupport<CORE, TBL_CATALOG> implements TBL_CATALOGService {
 	
 	
